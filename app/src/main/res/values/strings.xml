@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MyApp</string>
+    <string name="login_with_google">Login with Google</string>
+    <string name="firebase_login">Firebase Login</string>
+</resources>
