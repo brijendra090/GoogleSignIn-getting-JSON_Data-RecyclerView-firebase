@@ -1,11 +1,8 @@
 package com.crackcode.myapp;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,16 +12,13 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
@@ -62,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         mGoogleSignInClient = GoogleSignIn.getClient(this, googleSignInOptions);
 
         login.setOnClickListener(v -> signIn());
-        logout.setOnClickListener(v ->{ Logout(); logout.setVisibility(View.INVISIBLE);});
+        logout.setOnClickListener(v ->Logout());
 
         if (mAuth.getCurrentUser() != null){
             FirebaseUser user = mAuth.getCurrentUser();
@@ -88,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
                 // Google Sign In was successful, authenticate with Firebase
                 progressBar.setVisibility(View.VISIBLE);
                 GoogleSignInAccount account = task.getResult(ApiException.class);
+                assert account != null;
                 firebaseAuthWithGoogle(account);
             } catch (ApiException e) {
                 // Google Sign In failed, update UI appropriately
@@ -124,25 +119,29 @@ public class MainActivity extends AppCompatActivity {
         logout.setVisibility(View.VISIBLE);
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(getApplicationContext());
         if (acct != null) {
-            String name = acct.getDisplayName();
+            String personName = acct.getDisplayName();
             String email = acct.getEmail();
+            String personId = acct.getId();
             String photo = String.valueOf(user.getPhotoUrl());
 
             text.append("Info : \n");
-            text.append(name +"\n");
-            text.append(email);
+            text.append(personName +"\n");
+            text.append(email +"\n");
+            text.append(personId);
             Picasso.get().load(photo).into(image);
             login.setVisibility(View.INVISIBLE);
+
+            Toast.makeText(this,"Name" +personName, Toast.LENGTH_SHORT).show();
         }else {
             text.setText(getString(R.string.firebase_login));
             Picasso.get().load(R.drawable.ic_eye).into(image);
             login.setVisibility(View.VISIBLE);
+            logout.setVisibility(View.INVISIBLE);
         }
     }
 
     void Logout(){
         FirebaseAuth.getInstance().signOut();
         mGoogleSignInClient.signOut().addOnCompleteListener(this, task -> updateUI(null));
-        logout.setVisibility(View.INVISIBLE);
     }
 }
