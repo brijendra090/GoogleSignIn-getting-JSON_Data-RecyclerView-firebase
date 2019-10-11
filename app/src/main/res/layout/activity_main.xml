@@ -29,7 +29,7 @@
         android:id="@+id/logout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Logout"
+        android:text="@string/logout"
         android:visibility="invisible"
         android:layout_below="@id/text"
         android:layout_centerHorizontal="true"/>
