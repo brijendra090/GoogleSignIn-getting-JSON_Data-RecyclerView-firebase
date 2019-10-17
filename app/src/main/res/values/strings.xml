@@ -3,4 +3,11 @@
     <string name="login_with_google">Login with Google</string>
     <string name="firebase_login">Firebase Login</string>
     <string name="logout">Logout</string>
+    <string name="next">Next</string>
+    <string name="ID">ID : </string>
+    <string name="id">id</string>
+    <string name="Name">Name : </string>
+    <string name="name">name</string>
+    <string name="Email">Email : </string>
+    <string name="email"> email</string>
 </resources>

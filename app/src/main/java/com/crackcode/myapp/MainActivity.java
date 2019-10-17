@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
     static final int GOOGLE_SIGN = 123;
     FirebaseAuth mAuth;
-    Button login, logout;
+    Button login, logout, next;
     ImageView image;
     ProgressBar progressBar;
     GoogleSignInClient mGoogleSignInClient;
@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
         login=findViewById(R.id.login);
         logout=findViewById(R.id.logout);
+        next=findViewById(R.id.next);
         text=findViewById(R.id.text);
         image=findViewById(R.id.image);
         progressBar=findViewById(R.id.progress_bar);
@@ -57,6 +58,10 @@ public class MainActivity extends AppCompatActivity {
 
         login.setOnClickListener(v -> signIn());
         logout.setOnClickListener(v ->Logout());
+        next.setOnClickListener(v -> {
+            startActivity(new Intent(getApplicationContext(), SecondActivity.class));
+            Toast.makeText(this, "Getting Data...", Toast.LENGTH_LONG).show();
+        });
 
         if (mAuth.getCurrentUser() != null){
             FirebaseUser user = mAuth.getCurrentUser();
@@ -117,6 +122,7 @@ public class MainActivity extends AppCompatActivity {
     private void updateUI(FirebaseUser user) {
         progressBar.setVisibility(View.INVISIBLE);
         logout.setVisibility(View.VISIBLE);
+        next.setVisibility(View.VISIBLE);
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(getApplicationContext());
         if (acct != null) {
             String personName = acct.getDisplayName();
@@ -137,6 +143,7 @@ public class MainActivity extends AppCompatActivity {
             Picasso.get().load(R.drawable.ic_eye).into(image);
             login.setVisibility(View.VISIBLE);
             logout.setVisibility(View.INVISIBLE);
+            next.setVisibility(View.INVISIBLE);
         }
     }
 
