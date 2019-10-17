@@ -1,1 +1,85 @@
-Download your project json file
+{
+  "project_info": {
+    "project_number": "184561403457",
+    "firebase_url": "https://my-app-adcf8.firebaseio.com",
+    "project_id": "my-app-adcf8",
+    "storage_bucket": "my-app-adcf8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:184561403457:android:88f81c06b7b08ff06ee8c0",
+        "android_client_info": {
+          "package_name": "com.crackcode.myapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "184561403457-1sma8d1g2togj5a62ia9vfor5bmh9a0s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.crackcode.myapp",
+            "certificate_hash": "96becd0c248376df8136331b2546c23014e50b4c"
+          }
+        },
+        {
+          "client_id": "184561403457-4sbkrd60skc012h1juhtu7ujm718nsab.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAl0zLRAHzOuO98wfWOwrUowhI6s7aXA3I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "184561403457-4sbkrd60skc012h1juhtu7ujm718nsab.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:184561403457:android:142ba0ca2b112c896ee8c0",
+        "android_client_info": {
+          "package_name": "com.crackcode.recyclerview"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "184561403457-jn7l85o4arfk93lql3e1brgfn5t8o805.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.crackcode.recyclerview",
+            "certificate_hash": "96becd0c248376df8136331b2546c23014e50b4c"
+          }
+        },
+        {
+          "client_id": "184561403457-4sbkrd60skc012h1juhtu7ujm718nsab.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAl0zLRAHzOuO98wfWOwrUowhI6s7aXA3I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "184561403457-4sbkrd60skc012h1juhtu7ujm718nsab.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
